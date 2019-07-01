@@ -11,3 +11,5 @@ class Trip(models.Model):
     first_class_spot_price = models.FloatField()
     second_class_normal_price = models.FloatField()
     second_class_spot_price = models.FloatField()
+    capacity_first_class = models.IntegerField()
+    capacity_second_class = models.IntegerField()
