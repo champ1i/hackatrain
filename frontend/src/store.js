@@ -1,64 +1,48 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { TrainData } from "@/assets/js/models";
+import { Api } from "@/api/index";
+import { GET_ALL_TRIPS } from "@/api/queries/trips";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     loading: false,
-    trains: []
+    trains: [],
+    conn: new Api()
   },
   mutations: {
     setLoading(state, check) {
       state.loading = check;
     },
-    fetchTrains(state) {
-      state.loading = true;
-      console.log("fetching trains");
-      /** TEST DATA **/
-      var now = new Date();
-      now.setMinutes(now.getMinutes() + 30); // 30 minutes later..
-      var then = new Date(now);
-      state.trains[0] = new TrainData(
-        "1",
-        now,
-        then,
-        "Utrecht",
-        "Amsterdam",
-        "20",
-        "10",
-        "5%"
-      );
-      state.trains[1] = new TrainData(
-        "2",
-        now,
-        then,
-        "Utrecht",
-        "Amsterdam",
-        "20",
-        "10",
-        "5%"
-      );
-      state.loading = false;
-      /** TEST DATA END **/
-      // TODO: Get data from API
-    },
     setDropdownStatus(state, data) {
       var t = state.trains.get(data.id);
       console.log(t);
       // TODO: Update the dropdown status
+    },
+    updateTrips(state, data) {
+      // data is the graphQL response
     }
   },
   actions: {
     updateLoading(context, data) {
       context.commit("setLoading", data);
     },
-    getTrains(context) {
-      context.commit("fetchTrains");
-    },
     setDropdownStatus(context, data) {
       context.commit("setDropdownStatus", data);
+    },
+    updateTrips(context) {
+      context.state.loading = true;
+      context.state.conn
+        .fetch(GET_ALL_TRIPS)
+        .then(response => {
+          context.commit("updateTrips", response);
+          context.state.loading = false;
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 });

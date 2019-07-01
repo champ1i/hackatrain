@@ -1,26 +1,26 @@
 <template>
-<b-container>
-  <b-row>
-    <b-col>
-      <div class="header">
-        <p>Wing 2 win</p>
-      </div>
-    </b-col>
-  </b-row>
-  <b-row>
-    <b-col>
-      <div class="train-overview">
-        <div class="content" v-if="!loading">
-          <train-data-row
-            v-for="train in trains"
-            v-bind:key="train.id"
-            :train="train"
-          ></train-data-row>
+  <b-container>
+    <b-row>
+      <b-col>
+        <div class="header">
+          <p>Wing 2 win</p>
         </div>
-      </div>
-    </b-col>
-  </b-row>
-</b-container>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
+        <div class="train-overview">
+          <div class="content" v-if="!loading">
+            <train-data-row
+              v-for="train in trains"
+              v-bind:key="train.id"
+              :train="train"
+            ></train-data-row>
+          </div>
+        </div>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
     TrainDataRow
   },
   mounted() {
-    this.$store.dispatch("getTrains");
+    this.$store.dispatch("updateTrips");
   },
   computed: mapState({
     trains: state => state.trains,
