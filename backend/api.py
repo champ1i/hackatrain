@@ -7,8 +7,8 @@ class NS(object):
     def __init__(self):
         self.api_key = 'EURu8A0iTU7Vr2Vk524qL4U2NowHC8xYTFuTXIAc'
 
-    def get_zitplaatsen(self, treinnummer=3031):
-        query_zitplaatsen = 'https://ns-api.nl/virtualtrain/api/v1/trein/{}?features=zitplaats'.format(treinnummer)
+    def get_zitplaatsen(self, ritnummer=3031):
+        query_zitplaatsen = 'https://ns-api.nl/virtualtrain/api/v1/trein/{}?features=zitplaats'.format(ritnummer)
 
         header={'x-api-key': str(self.api_key)}
         r = requests.get(query_zitplaatsen, headers=header)
