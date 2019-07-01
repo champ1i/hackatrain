@@ -1,16 +1,16 @@
-from graphene import List, Schema
+from graphene import relay
 from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 
-from trip_info.models import Trip
+from trip_info.models import Trip as TripModel
 
 
-class TripType(DjangoObjectType):
+class TripNode(DjangoObjectType):
     class Meta:
-        model = Trip
+        model = TripModel
+        filter_fields = ['origin', 'destination']
+        interfaces = (relay.Node, )
 
 
 class Query(object):
-    all_trips = List(TripType)
-
-    def resolve_all_trips(self, info, **kwargs):
-        return Trip.objects.all()
+    all_trips = DjangoFilterConnectionField(TripNode)
