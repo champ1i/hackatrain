@@ -10,7 +10,9 @@
       "first_class_normal_price": 21.5,
       "first_class_spot_price": 18.3,
       "second_class_normal_price": 16.5,
-      "second_class_spot_price": 16.2
+      "second_class_spot_price": 16.2,
+      "capacity_first_class": 80,
+      "capacity_second_class": 220
     }
   },
   {
@@ -24,7 +26,9 @@
       "first_class_normal_price": 21.5,
       "first_class_spot_price": 20.7,
       "second_class_normal_price": 16.5,
-      "second_class_spot_price": 14.1
+      "second_class_spot_price": 14.1,
+      "capacity_first_class": 100,
+      "capacity_second_class": 250
     }
   },
   {
@@ -38,7 +42,9 @@
       "first_class_normal_price": 21.5,
       "first_class_spot_price": 17.9,
       "second_class_normal_price": 16.5,
-      "second_class_spot_price": 16.1
+      "second_class_spot_price": 16.1,
+      "capacity_first_class": 120,
+      "capacity_second_class": 280
     }
   },
   {
@@ -52,7 +58,9 @@
       "first_class_normal_price": 24.7,
       "first_class_spot_price": 24.7,
       "second_class_normal_price": 18.4,
-      "second_class_spot_price": 17.8
+      "second_class_spot_price": 17.8,
+      "capacity_first_class": 80,
+      "capacity_second_class": 220
     }
   },
   {
@@ -66,7 +74,9 @@
       "first_class_normal_price": 24.7,
       "first_class_spot_price": 20.0,
       "second_class_normal_price": 18.4,
-      "second_class_spot_price": 18.0
+      "second_class_spot_price": 18.0,
+      "capacity_first_class": 100,
+      "capacity_second_class": 250
     }
   },
   {
@@ -80,7 +90,9 @@
       "first_class_normal_price": 24.7,
       "first_class_spot_price": 21.8,
       "second_class_normal_price": 18.4,
-      "second_class_spot_price": 16.9
+      "second_class_spot_price": 16.9,
+      "capacity_first_class": 100,
+      "capacity_second_class": 250
     }
   }
 ]
