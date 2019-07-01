@@ -1,0 +1,86 @@
+[
+  {
+    "model": "trip_info.trip",
+    "pk": 1,
+    "fields": {
+      "departure_time": "10:00",
+      "arrival_time": "11:12",
+      "origin": "Amsterdam",
+      "destination": "Apeldoorn",
+      "first_class_normal_price": 21.5,
+      "first_class_spot_price": 18.3,
+      "second_class_normal_price": 16.5,
+      "second_class_spot_price": 16.2
+    }
+  },
+  {
+    "model": "trip_info.trip",
+    "pk": 2,
+    "fields": {
+      "departure_time": "10:15",
+      "arrival_time": "11:27",
+      "origin": "Amsterdam",
+      "destination": "Apeldoorn",
+      "first_class_normal_price": 21.5,
+      "first_class_spot_price": 20.7,
+      "second_class_normal_price": 16.5,
+      "second_class_spot_price": 14.1
+    }
+  },
+  {
+    "model": "trip_info.trip",
+    "pk": 3,
+    "fields": {
+      "departure_time": "10:30",
+      "arrival_time": "11:42",
+      "origin": "Amsterdam",
+      "destination": "Apeldoorn",
+      "first_class_normal_price": 21.5,
+      "first_class_spot_price": 17.9,
+      "second_class_normal_price": 16.5,
+      "second_class_spot_price": 16.1
+    }
+  },
+  {
+    "model": "trip_info.trip",
+    "pk": 4,
+    "fields": {
+      "departure_time": "09:50",
+      "arrival_time": "10:47",
+      "origin": "Amsterdam",
+      "destination": "Nijmegen",
+      "first_class_normal_price": 24.7,
+      "first_class_spot_price": 24.7,
+      "second_class_normal_price": 18.4,
+      "second_class_spot_price": 17.8
+    }
+  },
+  {
+    "model": "trip_info.trip",
+    "pk": 5,
+    "fields": {
+      "departure_time": "10:20",
+      "arrival_time": "11:17",
+      "origin": "Amsterdam",
+      "destination": "Nijmegen",
+      "first_class_normal_price": 24.7,
+      "first_class_spot_price": 20.0,
+      "second_class_normal_price": 18.4,
+      "second_class_spot_price": 18.0
+    }
+  },
+  {
+    "model": "trip_info.trip",
+    "pk": 6,
+    "fields": {
+      "departure_time": "10:50",
+      "arrival_time": "11:47",
+      "origin": "Amsterdam",
+      "destination": "Nijmegen",
+      "first_class_normal_price": 24.7,
+      "first_class_spot_price": 21.8,
+      "second_class_normal_price": 18.4,
+      "second_class_spot_price": 16.9
+    }
+  }
+]

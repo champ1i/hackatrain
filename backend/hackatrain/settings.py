@@ -27,10 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+GRAPHENE = {
+    'SCHEMA': 'hackatrain.schema.schema'
+}
 # Application definition
 
 INSTALLED_APPS = [
+    'trip_info',
+    'graphene_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
