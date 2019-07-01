@@ -8,7 +8,10 @@ from trip_info.models import Trip as TripModel
 class TripNode(DjangoObjectType):
     class Meta:
         model = TripModel
-        filter_fields = ['origin', 'destination']
+        filter_fields = {
+            'origin': ['exact', 'istartswith'],
+            'destination': ['exact', 'istartswith']
+        }
         interfaces = (relay.Node, )
 
 
