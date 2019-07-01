@@ -1,4 +1,4 @@
-# wing2win-frontend
+# frontend
 
 ## Project setup
 ```
