@@ -1,6 +1,8 @@
 import requests
 import json
 import numpy as np
+from datetime import datetime
+
 
 
 class NS(object):
@@ -17,7 +19,7 @@ class NS(object):
 
     def get_zitplaatsen(self, ritnummer=3031):
         query_zitplaatsen = 'https://ns-api.nl/virtualtrain/api/v1/trein/{}?features=zitplaats'.format(ritnummer)
-        data = self.data(query_zitplaatsen)
+        data = self.get_data(query_zitplaatsen)
         return data['materieeldelen'][0]['zitplaatsen']
 
     # TODO: fix date format, should be ISO 8601
