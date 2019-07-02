@@ -16,13 +16,28 @@ export default new Vuex.Store({
     setLoading(state, check) {
       state.loading = check;
     },
-    setDropdownStatus(state, data) {
-      var t = state.trains.get(data.id);
-      console.log(t);
+    setDropdownStatus() {
       // TODO: Update the dropdown status
     },
     updateTrips(state, data) {
       // data is the graphQL response
+      data.data.allTrips.edges.forEach(function(value) {
+        var n = value.node;
+        var now = new Date();
+        var then = new Date();
+        then.setMinutes(now.getMinutes() + 30);
+        var t = new TrainData(
+          n.id,
+          now,
+          then,
+          n.origin,
+          n.destination,
+          "20",
+          "10",
+          "-15%"
+        );
+        state.trains.push(t);
+      });
     }
   },
   actions: {

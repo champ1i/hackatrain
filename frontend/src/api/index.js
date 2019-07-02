@@ -12,7 +12,6 @@ export class Api {
   fetch(request) {
     return new Promise(async (resolve, reject) => {
       const response = await apolloClient.query({ query: request });
-      console.log(response);
       if (response === null) {
         reject("response is null");
       }

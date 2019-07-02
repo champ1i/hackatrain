@@ -12,7 +12,8 @@ export class TrainData {
     this.id = id;
     this.startTime = startTime;
     this.endTime = endTime;
-    this.travelTime = endTime.valueOf() - startTime.valueOf(); // This is the difference of start time and end time in milliseconds
+    var travel = new Date(endTime.valueOf() - startTime.valueOf());
+    this.travelTime = travel.getHours() + ":" + travel.getMinutes(); // This is the difference of start time and end time in milliseconds
     this.startLocation = startLocation;
     this.endLocation = endLocation;
     this.firstClassPrice = firstClassPrice;
