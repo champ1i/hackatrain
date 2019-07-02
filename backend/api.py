@@ -40,5 +40,6 @@ class FakeData(object):
         totaal_zitplaatsen = zitplaatsen['zitplaatsEersteKlas'] + zitplaatsen['zitplaatsTweedeKlas']
 
         mean = totaal_zitplaatsen/2
+        sd = mean
 
-        return np.random.exponential(mean)
+        return np.maximum(np.random.normal(mean, sd),100)
