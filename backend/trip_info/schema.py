@@ -19,16 +19,32 @@ class TripNode(DjangoObjectType):
 
     available_first_class = graphene.Int()
     available_second_class = graphene.Int()
+    first_class_spot_price = graphene.Float()
+    second_class_spot_prices = graphene.Float()
 
     def resolve_available_first_class(self, info):
         if self is not None:
             return self.capacity_first_class - randint(10, 60)
-        return 0
+        else:
+            return 0
 
     def resolve_available_second_class(self, info):
         if self is not None:
             return self.capacity_second_class - randint(70, 200)
-        return 0
+        else:
+            return 0
+
+    def resolve_first_class_spot_price(self, info):
+        if self is not None:
+            return round(self.first_class_spot_price * 0.9, 2)
+        else:
+            return 0
+
+    def resolve_second_class_spot_price(self, info):
+        if self is not None:
+            return round(self.second_class_spot_price * 0.9, 2)
+        else:
+            return 0
 
 
 class Query(object):
