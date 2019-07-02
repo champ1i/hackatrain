@@ -4,7 +4,6 @@ import numpy as np
 from datetime import datetime
 
 
-
 class NS(object):
 
     def __init__(self):
