@@ -1,9 +1,9 @@
 <template>
   <div class="tripInfo">
-    <h2 class="trip">{{ train.startLocation }} - {{ train.endLocation }}</h2>
+    <h2 class="trip">{{ train.origin }} - {{ train.destination }}</h2>
     <div class="tripDetails">
       <div class="trainTime">
-        <p>{{ train.startTime }} - {{ train.endTime }}</p>
+        <p>{{ train.departureTime }} - {{ train.arrivalTime }}</p>
       </div>
       <div class="trainTravelTime">
         {{ train.travelTime }}

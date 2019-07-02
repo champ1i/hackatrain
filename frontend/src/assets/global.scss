@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+$primary-color: #ffc81d;
+$background-color: #003381;
+$menu-color: #29384d;
+$text-color: white;
+$row-color: #0f1721;
+$input-color: whitesmoke;
+
+////////////////
+// general
+////////////////
+body {
+  margin: 0;
+  padding: 0;
+  color: $text-color;
+  background-color: $background-color;
+  font-family: "Quicksand", sans-serif;
+}
+
+////////////////
+// elements
+////////////////
+
+// menu
+menu,
+.menu {
+  padding: 1rem;
+  min-height: 4rem;
+  margin: 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: $primary-color;
+
+  &_toggle {
+    --size: 2rem;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: calc(var(--size) / 6);
+    cursor: pointer;
+
+    > span {
+      height: 0.2rem;
+      width: calc(100% - var(--size) / 3);
+      background-color: $text-color;
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+      position: absolute;
+      transition: 1s;
+
+      &:nth-child(1) {
+        transform: translateY(calc(-1 * var(--size) / 3));
+      }
+
+      &:nth-child(3) {
+        transform: translateY(calc(var(--size) / 3));
+      }
+    }
+
+    &.open {
+      > span {
+        &:nth-child(1) {
+          transform: translateY(0) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: translateY(0) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &_content {
+    opacity: 0;
+    pointer-events: none;
+    background-color: $background-color;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    position: fixed;
+    color: $text-color;
+    left: 0;
+    width: 100vw;
+    z-index: 3;
+    padding: 2rem;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(10%);
+    transition: 0.5s;
+
+    &.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0%);
+      transition: 0.2s;
+    }
+  }
+
+  &_item {
+    margin-bottom: 1rem;
+    cursor: pointer;
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+
+// inputs
+
+input[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type="checkbox"] + label {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: $input-color;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin-right: 1rem;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 700;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type="checkbox"] + label:after {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  color: $primary-color;
+  transform: translateY(-100%);
+  transition: 0.2s;
+}
+
+input[type="checkbox"]:checked + label:after {
+  transform: translateY(0);
+}
+
+select {
+  background-color: $input-color;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.6rem;
+  appearance: none;
+  transition: 0.2s;
+}
+
+select[disabled] {
+  opacity: 0.5;
+}
+
+/* 3D button */
+.button {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 200;
+  height: 35px;
+  padding: 0.2rem 1rem 1.5rem 1rem;
+  border-radius: 0.2rem;
+  color: white;
+  background-color: $primary-color;
+  box-shadow: 0 0.5rem darken($primary-color, 30%);
+  transform: translateY(-0.5rem);
+  cursor: pointer;
+  transition: 0.5s;
+
+  &.white {
+    color: $primary-color;
+    background-color: white;
+    box-shadow: 0 0.5rem darken(white, 30%);
+  }
+}
+
+.button:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 0.2rem darken($primary-color, 30%);
+  transition: 0.2s;
+}
+
+.button:active {
+  transform: translateY(0rem);
+  box-shadow: 0 0 darken($primary-color, 30%);
+  transition: 0.2s;
+}
+
+// round button
+.round-button {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $text-color;
+  background-color: $primary-color;
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+
+  &[disabled] {
+    background-color: transparent;
+  }
+
+  &.white {
+    color: $primary-color;
+    background-color: white;
+  }
+}
+
+// general components
+.content {
+  padding: 1rem;
+}
+
+.row {
+  background-color: $row-color;
+  color: $text-color;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.button-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > * {
+    margin-right: 2rem;
+  }
+
+  > *:nth-last-child(1) {
+    margin-right: 0;
+  }
+}

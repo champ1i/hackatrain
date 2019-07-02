@@ -1,4 +1,5 @@
 import { apolloClient } from "@/apollo";
+import gql from "graphql-tag";
 
 export class Api {
   /**
@@ -35,6 +36,33 @@ export class Api {
       }
       resolve(response);
     });
+  }
+
+  // TODO: make custom with data variable
+  buildTripQuery() {
+    return gql`
+      {
+        allTrips(origin: "Amsterdam", destination: "Nijmegen") {
+          edges {
+            node {
+              id
+              origin
+              destination
+              firstClassNormalPrice
+              secondClassNormalPrice
+              firstClassSpotPrice
+              secondClassSpotPrice
+              departureTime
+              arrivalTime
+              availableFirstClass
+              availableSecondClass
+              capacityFirstClass
+              capacitySecondClass
+            }
+          }
+        }
+      }
+    `;
   }
 }
 
